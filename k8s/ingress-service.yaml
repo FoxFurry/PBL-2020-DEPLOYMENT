@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /sound/
+            backend:
+              serviceName: sound-processing-cluster-ip-service
+              servicePort: 8080
+          - path: /api/
+            backend:
+              serviceName: machine-learning-cluster-ip-service
+              servicePort: 5000
+          - path: /
+            backend:
+              serviceName: webpage-cluster-ip-service
+              servicePort: 9000

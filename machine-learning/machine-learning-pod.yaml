@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: machine-learning-pod
+  labels:
+    component: machine-learning
+spec:
+  containers:
+    - name: machine-learning
+        image: foxfurry/pbl-2020-python
+        ports:
+          - containerPort: 5000

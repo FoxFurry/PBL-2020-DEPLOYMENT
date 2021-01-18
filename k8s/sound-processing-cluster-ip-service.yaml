@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sound-processing-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: sound-processing
+  ports:
+    - port: 8080
+      targetPort: 8080

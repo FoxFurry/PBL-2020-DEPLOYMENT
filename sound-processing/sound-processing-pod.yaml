@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sound-processing-pod
+  labels:
+    component: sound-processing
+  containers:
+    - name: sound-processing
+      image: foxfurry/pbl-2020-kotlin
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 8080

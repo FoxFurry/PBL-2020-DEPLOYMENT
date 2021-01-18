@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sound-processing-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: sound-processing
+  template:
+    metadata:
+      labels:
+        component: sound-processing
+    spec:
+      containers:
+        - name: sound-processing
+          image: foxfurry/pbl-2020-kotlin
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
