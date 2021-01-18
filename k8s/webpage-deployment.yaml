@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webpage-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: webpage
+  template:
+    metadata:
+      labels:
+        component: webpage
+    spec:
+      containers:
+        - name: webpage
+          image: foxfurry/pbl-2020-webpage
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9000
